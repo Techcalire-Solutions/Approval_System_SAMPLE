@@ -2,12 +2,12 @@ import { Menu } from '../models/menu.model';
 
 export const verticalMenuItems = [ 
     new Menu (1, 'Dashboard', '/', null, 'dashboard', null, false, 0),
-    new Menu (2, 'Role', '/role', null, 'supervisor_account', null, false, 0), 
-    new Menu (3, 'User', '/users', null, 'supervisor_account', null, false, 0), 
-    new Menu (4, 'Team', '/team', null, 'supervisor_account', null, false, 0), 
-    new Menu (5, 'Approval Uploads', null, null, 'computer', null, true, 0),   
-    new Menu (6, 'Add', '/ui/buttons', null, 'keyboard', null, false, 5),  
-    new Menu (7, 'View', '/ui/cards', null, 'card_membership', null, false, 5), 
+    new Menu (2, 'Role', '/role', null, 'group', null, false, 0), 
+    new Menu (3, 'User', '/users', null, 'person', null, false, 0), 
+    new Menu (4, 'Team', '/team', null, 'groups', null, false, 0), 
+    new Menu (5, 'Approval Uploads', null, null, 'upload_file', null, true, 0),   
+    new Menu (6, 'Add', '/ui/buttons', null, 'add_circle', null, false, 5),  
+    new Menu (7, 'View', '/ui/cards', null, 'visibility', null, false, 5), 
 
 
    
@@ -15,12 +15,13 @@ export const verticalMenuItems = [
 
 export const horizontalMenuItems = [ 
     new Menu (1, 'Dashboard', '/', null, 'dashboard', null, false, 0),
-    new Menu (2, 'Role',  null, null, 'computer', null, true, 0),   
-    new Menu (3, 'User', null, null, 'computer', null, true, 0),   
-    new Menu (4, 'Team',null, null, 'computer', null, true, 0),   
-    new Menu (5, 'Approval Uploads',  null, null, 'computer', null, true, 0),   
-    new Menu (4, 'Add', '/ui/buttons', null, 'keyboard', null, false, 5),  
-    new Menu (5, 'View', '/ui/cards', null, 'card_membership', null, false, 5), 
+    new Menu (2, 'Role',  null, null, 'group', null, true, 0),   
+    new Menu (3, 'User', null, null, 'person', null, true, 0),   
+    new Menu (4, 'Team', null, null, 'groups', null, true, 0),   
+    new Menu (5, 'Approval Uploads',  null, null, 'upload_file', null, true, 0),   
+    new Menu (4, 'Add', '/ui/buttons', null, 'add_circle', null, false, 5),  
+    new Menu (5, 'View', '/ui/cards', null, 'visibility', null, false, 5),
+    
     // new Menu (6, 'Lists', '/ui/lists', null, 'list', null, false, 3), 
     // new Menu (7, 'Grids', '/ui/grids', null, 'grid_on', null, false, 3), 
     // new Menu (8, 'Tabs', '/ui/tabs', null, 'tab', null, false, 3), 
