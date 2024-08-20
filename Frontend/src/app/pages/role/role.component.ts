@@ -5,7 +5,7 @@ import { listTransition } from '../../theme/utils/app-animation';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { VerticalMenuComponent } from '../../theme/components/menu/vertical-menu/vertical-menu.component';
 import { Menu } from '../../common/models/menu.model';
-import { debounceTime } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { MatCardModule } from '@angular/material/card';
@@ -17,6 +17,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { RoleService } from '@services/role.service';
+import { PageEvent } from '@angular/material/paginator';
+import { Role } from '../../common/interfaces/role';
 
 @Component({
   selector: 'app-role',
@@ -49,57 +52,35 @@ export class RoleComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, 
               public snackBar: MatSnackBar,
               private menuService: MenuService,
-              private dynamicMenuService: DynamicMenuService) { 
+              private dynamicMenuService: DynamicMenuService,
+              private roleService:RoleService) { 
     this.menuItems = this.menuService.getVerticalMenuItems();
   }
 
   ngOnInit() {
+    this.getRoles()
     this.form = this.formBuilder.group({
-      'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'icon': null,
-      'routerLink': ['', Validators.required],    
-      'href': ['', Validators.required],            
-      'target': null,
-      'hasSubMenu': false,
-      'parentId': 0
+      'roleName': ['', Validators.required]  
+      // 'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      // 'icon': null,
+      // 'routerLink': ['', Validators.required],    
+      // 'href': ['', Validators.required],            
+      // 'target': null,
+      // 'hasSubMenu': false,
+      // 'parentId': 0
     });
   }
 
   ngAfterViewInit() {
-    this.form.valueChanges.pipe(debounceTime(500)).subscribe((menu:Menu) => {  
-      if(menu.routerLink && menu.routerLink != ''){
-        this.form.controls['href'].setValue(null);
-        this.form.controls['href'].disable();
-        this.form.controls['href'].clearValidators();
-        this.form.controls['target'].setValue(null);
-        this.form.controls['target'].disable();
-      }
-      else{
-        this.form.controls['href'].enable();
-        this.form.controls['href'].setValidators([Validators.required]);
-        this.form.controls['target'].enable();
-      }
-      this.form.controls['href'].updateValueAndValidity();
-
-      if(menu.href && menu.href != ''){
-        this.form.controls['routerLink'].setValue(null);
-        this.form.controls['routerLink'].disable();
-        this.form.controls['routerLink'].clearValidators();
-        this.form.controls['hasSubMenu'].setValue(false);
-        this.form.controls['hasSubMenu'].disable();
-      }
-      else{
-        this.form.controls['routerLink'].enable();
-        this.form.controls['routerLink'].setValidators([Validators.required]);
-        this.form.controls['hasSubMenu'].enable();
-      }
-      this.form.controls['routerLink'].updateValueAndValidity();
-    })
+   
   }
 
-  onSubmit(menu: Menu): void {
+  onSubmit(): void {
     if (this.form.valid) {
-      this.dynamicMenuService.addNewMenuItem(VerticalMenuComponent, this.menuItems, menu);
+      console.log(this.form.getRawValue())
+      this.roleService.addRole(this.form.getRawValue()).subscribe((res)=>{
+        console.log(res)
+      });
       this.snackBar.open('New menu item added successfully!', undefined, {
         duration: 2000,
       });
@@ -109,5 +90,33 @@ export class RoleComponent implements OnInit {
       });     
     }
   } 
+  roles: Role[] = []
+  filterValue: string = '';
+  roleSub!: Subscription;
+  submittingForm: boolean = false;
+  getRoles() {
+    this.submittingForm = true;
+    this.roleSub = this.roleService.getRole(this.filterValue, this.currentPage, this.pageSize).subscribe((res: any) => {
+      this.submittingForm = false;
+      this.roles = res.items;
+      this.totalItems = res.count;
+    })
+  }
 
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+    this.filterValue = filterValue;
+    this.getRoles();
+  }
+
+  pageSize = 10;
+  currentPage = 1;
+  totalItems = 0;
+  onPageChange(event: PageEvent): void {
+    this.currentPage = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+    this.getRoles();
+  }
 }
+
+
