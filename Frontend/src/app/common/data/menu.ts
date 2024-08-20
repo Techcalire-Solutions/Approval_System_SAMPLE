@@ -3,9 +3,9 @@ import { Menu } from '../models/menu.model';
 export const verticalMenuItems = [ 
     new Menu (1, 'Dashboard', '/', null, 'dashboard', null, false, 0),
     new Menu (2, 'Role', '/role', null, 'supervisor_account', null, false, 0), 
-     new Menu (3, 'User', '/users', null, 'supervisor_account', null, false, 0), 
-    new Menu (4, 'Team', '/users', null, 'supervisor_account', null, false, 0), 
-    new Menu (5, 'Uploads', null, null, 'computer', null, true, 0),   
+    new Menu (3, 'User', '/users', null, 'supervisor_account', null, false, 0), 
+    new Menu (4, 'Team', '/team', null, 'supervisor_account', null, false, 0), 
+    new Menu (5, 'Approval Uploads', null, null, 'computer', null, true, 0),   
     new Menu (6, 'Add', '/ui/buttons', null, 'keyboard', null, false, 5),  
     new Menu (7, 'View', '/ui/cards', null, 'card_membership', null, false, 5), 
 
@@ -18,7 +18,7 @@ export const horizontalMenuItems = [
     new Menu (2, 'Role',  null, null, 'computer', null, true, 0),   
     new Menu (3, 'User', null, null, 'computer', null, true, 0),   
     new Menu (4, 'Team',null, null, 'computer', null, true, 0),   
-    new Menu (5, 'Uploads',  null, null, 'computer', null, true, 0),   
+    new Menu (5, 'Approval Uploads',  null, null, 'computer', null, true, 0),   
     new Menu (4, 'Add', '/ui/buttons', null, 'keyboard', null, false, 5),  
     new Menu (5, 'View', '/ui/cards', null, 'card_membership', null, false, 5), 
     // new Menu (6, 'Lists', '/ui/lists', null, 'list', null, false, 3), 
