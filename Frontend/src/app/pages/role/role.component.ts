@@ -96,7 +96,7 @@ export class RoleComponent implements OnInit {
   submittingForm: boolean = false;
   getRoles() {
     this.submittingForm = true;
-    this.roleSub = this.roleService.getRole(this.filterValue, this.currentPage, this.pageSize).subscribe((res: any) => {
+    this.roleSub = this.roleService.getRole().subscribe((res: any) => {
       this.submittingForm = false;
       this.roles = res.items;
       this.totalItems = res.count;
