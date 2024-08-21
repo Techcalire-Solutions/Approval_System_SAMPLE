@@ -1,4 +1,11 @@
 import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-IINJ5ALC.js";
+import {
   FocusKeyManager,
   FocusMonitor,
   MatCommonModule,
@@ -7,13 +14,6 @@ import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader
 } from "./chunk-K6RGSCST.js";
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-IINJ5ALC.js";
 import {
   Overlay,
   OverlayConfig,

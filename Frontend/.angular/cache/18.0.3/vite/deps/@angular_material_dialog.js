@@ -1,11 +1,4 @@
 import {
-  A11yModule,
-  FocusMonitor,
-  FocusTrapFactory,
-  InteractivityChecker,
-  MatCommonModule
-} from "./chunk-K6RGSCST.js";
-import {
   animate,
   animateChild,
   group,
@@ -15,6 +8,13 @@ import {
   transition,
   trigger
 } from "./chunk-IINJ5ALC.js";
+import {
+  A11yModule,
+  FocusMonitor,
+  FocusTrapFactory,
+  InteractivityChecker,
+  MatCommonModule
+} from "./chunk-K6RGSCST.js";
 import {
   Overlay,
   OverlayConfig,
