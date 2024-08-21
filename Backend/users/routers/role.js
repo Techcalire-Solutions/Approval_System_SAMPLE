@@ -22,8 +22,11 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
+  console.log("GET API------INITIAL 1 ")
   try {
+    console.log("GET API------INITIAL  2")
     const roles = await Role.findAll({});
+    console.log("ROLES------------------",roles)
     res.send(roles);
   } catch (error) {
     res.status(500).send({ error: error.message });

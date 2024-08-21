@@ -3,14 +3,15 @@ import { RouterOutlet } from '@angular/router';
 import { Settings, SettingsService } from './services/settings.service';
 import { NgClass } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
     NgClass,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
