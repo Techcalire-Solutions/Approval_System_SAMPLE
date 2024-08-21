@@ -3,7 +3,16 @@ import {
   MatFormField,
   MatFormFieldControl,
   MatFormFieldModule
-} from "./chunk-4EFJJIPK.js";
+} from "./chunk-AY7RHSEV.js";
+import {
+  animate,
+  animateChild,
+  query,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-IINJ5ALC.js";
 import {
   ActiveDescendantKeyManager,
   ErrorStateMatcher,
@@ -19,15 +28,6 @@ import {
   addAriaReferencedId,
   removeAriaReferencedId
 } from "./chunk-K6RGSCST.js";
-import {
-  animate,
-  animateChild,
-  query,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-IINJ5ALC.js";
 import {
   CdkConnectedOverlay,
   CdkOverlayOrigin,
@@ -1507,4 +1507,4 @@ export {
   MatSelectTrigger,
   MatSelectModule
 };
-//# sourceMappingURL=chunk-KEJ2KUXC.js.map
+//# sourceMappingURL=chunk-4G7AZ77W.js.map

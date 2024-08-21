@@ -3,18 +3,18 @@ import {
   MatButtonModule
 } from "./chunk-VOHHNS3P.js";
 import {
-  BreakpointObserver,
-  Breakpoints,
-  LiveAnnouncer,
-  MatCommonModule
-} from "./chunk-K6RGSCST.js";
-import {
   animate,
   state,
   style,
   transition,
   trigger
 } from "./chunk-IINJ5ALC.js";
+import {
+  BreakpointObserver,
+  Breakpoints,
+  LiveAnnouncer,
+  MatCommonModule
+} from "./chunk-K6RGSCST.js";
 import {
   Overlay,
   OverlayConfig,
