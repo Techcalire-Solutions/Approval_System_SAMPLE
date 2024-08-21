@@ -6,8 +6,8 @@ export const verticalMenuItems = [
     new Menu (3, 'User', '/users', null, 'person', null, false, 0), 
     new Menu (4, 'Team', '/team', null, 'groups', null, false, 0), 
     new Menu (5, 'Approval Uploads', null, null, 'upload_file', null, true, 0),   
-    new Menu (6, 'Add', '/ui/buttons', null, 'add_circle', null, false, 5),  
-    new Menu (7, 'View', '/ui/cards', null, 'visibility', null, false, 5), 
+    new Menu (6, 'Add', '/ui/buttonss', null, 'add_circle', null, false, 5),  
+    new Menu (7, 'View', '/ui/cardss', null, 'visibility', null, false, 5), 
 
 
    
@@ -19,8 +19,8 @@ export const horizontalMenuItems = [
     new Menu (3, 'User', null, null, 'person', null, true, 0),   
     new Menu (4, 'Team', null, null, 'groups', null, true, 0),   
     new Menu (5, 'Approval Uploads',  null, null, 'upload_file', null, true, 0),   
-    new Menu (4, 'Add', '/ui/buttons', null, 'add_circle', null, false, 5),  
-    new Menu (5, 'View', '/ui/cards', null, 'visibility', null, false, 5),
+    new Menu (4, 'Add', '/ui/buttonss', null, 'add_circle', null, false, 5),  
+    new Menu (5, 'View', '/ui/cardss', null, 'visibility', null, false, 5),
     
     // new Menu (6, 'Lists', '/ui/lists', null, 'list', null, false, 3), 
     // new Menu (7, 'Grids', '/ui/grids', null, 'grid_on', null, false, 3), 

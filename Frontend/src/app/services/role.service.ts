@@ -1,23 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Role } from '../common/interfaces/role';  // Ensure this path is correct
+import { Role } from '../common/interfaces/role'; 
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoleService {
-  constructor(private _http: HttpClient) { }
 
-  url = 'http://localhost:8000';
 
-  // Method to add a role
-  addRole(data: any): Observable<any> {
-    return this._http.post(this.url + "/role", data);
+  private apiUrl = 'http://localhost:8000'; 
+ 
+  constructor(private http: HttpClient) { }
+
+  getRole(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/role`);
   }
-
-  // Method to get all roles
-  getRole(): Observable<Role[]> {
-    return this._http.get<Role[]>(this.url + "/role");
+  
+  public addRole(data: any): Observable<any> {
+    return this.http.post( 'http://localhost:8000/role', data);
   }
 }
