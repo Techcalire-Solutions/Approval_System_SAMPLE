@@ -1,10 +1,10 @@
 import {
-  MatCommonModule
-} from "./chunk-K6RGSCST.js";
-import {
   ScrollingModule,
   ViewportRuler
 } from "./chunk-4SDHNWJ4.js";
+import {
+  MatCommonModule
+} from "./chunk-K6RGSCST.js";
 import {
   Platform
 } from "./chunk-UZ7CZ6BJ.js";

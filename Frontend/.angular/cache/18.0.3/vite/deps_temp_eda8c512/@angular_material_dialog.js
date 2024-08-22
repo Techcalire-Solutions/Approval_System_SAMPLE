@@ -1,21 +1,4 @@
 import {
-  A11yModule,
-  FocusMonitor,
-  FocusTrapFactory,
-  InteractivityChecker,
-  MatCommonModule
-} from "./chunk-K6RGSCST.js";
-import {
-  animate,
-  animateChild,
-  group,
-  query,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-IINJ5ALC.js";
-import {
   Overlay,
   OverlayConfig,
   OverlayContainer,
@@ -32,6 +15,23 @@ import {
   PortalModule,
   TemplatePortal
 } from "./chunk-NDTZY4LW.js";
+import {
+  animate,
+  animateChild,
+  group,
+  query,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-IINJ5ALC.js";
+import {
+  A11yModule,
+  FocusMonitor,
+  FocusTrapFactory,
+  InteractivityChecker,
+  MatCommonModule
+} from "./chunk-K6RGSCST.js";
 import {
   Platform,
   _getFocusedElementPierceShadowDom

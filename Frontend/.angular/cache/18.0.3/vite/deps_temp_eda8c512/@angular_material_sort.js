@@ -1,11 +1,4 @@
 import {
-  AnimationCurves,
-  AnimationDurations,
-  AriaDescriber,
-  FocusMonitor,
-  MatCommonModule
-} from "./chunk-K6RGSCST.js";
-import {
   animate,
   animateChild,
   keyframes,
@@ -15,6 +8,13 @@ import {
   transition,
   trigger
 } from "./chunk-IINJ5ALC.js";
+import {
+  AnimationCurves,
+  AnimationDurations,
+  AriaDescriber,
+  FocusMonitor,
+  MatCommonModule
+} from "./chunk-K6RGSCST.js";
 import "./chunk-UZ7CZ6BJ.js";
 import "./chunk-VLD3UAOS.js";
 import "./chunk-VIFRIXRU.js";

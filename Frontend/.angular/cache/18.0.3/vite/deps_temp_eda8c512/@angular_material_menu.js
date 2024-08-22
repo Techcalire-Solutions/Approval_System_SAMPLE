@@ -1,20 +1,4 @@
 import {
-  FocusKeyManager,
-  FocusMonitor,
-  MatCommonModule,
-  MatRipple,
-  MatRippleModule,
-  isFakeMousedownFromScreenReader,
-  isFakeTouchstartFromScreenReader
-} from "./chunk-K6RGSCST.js";
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-IINJ5ALC.js";
-import {
   Overlay,
   OverlayConfig,
   OverlayModule
@@ -26,6 +10,22 @@ import {
   DomPortalOutlet,
   TemplatePortal
 } from "./chunk-NDTZY4LW.js";
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-IINJ5ALC.js";
+import {
+  FocusKeyManager,
+  FocusMonitor,
+  MatCommonModule,
+  MatRipple,
+  MatRippleModule,
+  isFakeMousedownFromScreenReader,
+  isFakeTouchstartFromScreenReader
+} from "./chunk-K6RGSCST.js";
 import {
   normalizePassiveListenerOptions
 } from "./chunk-UZ7CZ6BJ.js";

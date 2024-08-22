@@ -1,8 +1,31 @@
 import {
   MAT_FORM_FIELD,
   MatFormField
-} from "./chunk-4EFJJIPK.js";
+} from "./chunk-AY7RHSEV.js";
 import "./chunk-NI6UR357.js";
+import {
+  Overlay,
+  OverlayConfig,
+  OverlayModule
+} from "./chunk-KLGWODJ7.js";
+import {
+  CdkScrollableModule,
+  ViewportRuler
+} from "./chunk-4SDHNWJ4.js";
+import {
+  TemplatePortal
+} from "./chunk-NDTZY4LW.js";
+import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-RTCOBV3B.js";
+import {
+  animate,
+  group,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-IINJ5ALC.js";
 import {
   ActiveDescendantKeyManager,
   MAT_OPTGROUP,
@@ -17,26 +40,6 @@ import {
   addAriaReferencedId,
   removeAriaReferencedId
 } from "./chunk-K6RGSCST.js";
-import {
-  animate,
-  group,
-  state,
-  style,
-  transition,
-  trigger
-} from "./chunk-IINJ5ALC.js";
-import {
-  Overlay,
-  OverlayConfig,
-  OverlayModule
-} from "./chunk-KLGWODJ7.js";
-import {
-  CdkScrollableModule,
-  ViewportRuler
-} from "./chunk-4SDHNWJ4.js";
-import {
-  TemplatePortal
-} from "./chunk-NDTZY4LW.js";
 import {
   Platform,
   _getEventTarget
@@ -54,9 +57,12 @@ import {
   hasModifierKey
 } from "./chunk-CJNMZQC3.js";
 import "./chunk-OGRJLTMR.js";
+<<<<<<< HEAD:Frontend/.angular/cache/18.0.3/vite/deps_temp_eda8c512/@angular_material_autocomplete.js
 import {
   NG_VALUE_ACCESSOR
 } from "./chunk-RTCOBV3B.js";
+=======
+>>>>>>> 13afa8834912ac37a8f0ef871ab0d773870e7d1d:Frontend/.angular/cache/18.0.3/vite/deps/@angular_material_autocomplete.js
 import {
   CommonModule,
   DOCUMENT
