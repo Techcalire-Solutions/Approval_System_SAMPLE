@@ -1,13 +1,13 @@
 import {
+  ComponentPortal,
+  DomPortalOutlet
+} from "./chunk-NDTZY4LW.js";
+import {
   animate,
   style,
   transition,
   trigger
 } from "./chunk-IINJ5ALC.js";
-import {
-  ComponentPortal,
-  DomPortalOutlet
-} from "./chunk-NDTZY4LW.js";
 import {
   CommonModule,
   NgForOf,

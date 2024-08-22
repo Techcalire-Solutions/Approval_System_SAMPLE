@@ -19,13 +19,16 @@ import { MessagesComponent } from '../theme/components/messages/messages.compone
 import { UserMenuComponent } from '../theme/components/user-menu/user-menu.component';
 import { HorizontalMenuComponent } from '../theme/components/menu/horizontal-menu/horizontal-menu.component';
 import { BreadcrumbComponent } from '../theme/components/breadcrumb/breadcrumb.component';
-
+import { MaterialModule } from '../common/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-pages',
   standalone: true,
   imports: [
     RouterOutlet,
     FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -46,12 +49,12 @@ import { BreadcrumbComponent } from '../theme/components/breadcrumb/breadcrumb.c
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.scss'
 })
-export class PagesComponent implements OnInit { 
+export class PagesComponent implements OnInit {
   @ViewChild('sidenav') sidenav:any;
-  @ViewChild('backToTop') backToTop:any; 
-  @ViewChild('mainSidenavContent') mainSidenavContent: any; 
+  @ViewChild('backToTop') backToTop:any;
+  @ViewChild('mainSidenavContent') mainSidenavContent: any;
   @ViewChild('mainContent') mainContent: ElementRef;
- 
+
   public settings: Settings;
   public menus = ['vertical', 'horizontal'];
   public menuOption:string;
@@ -60,46 +63,46 @@ export class PagesComponent implements OnInit {
   public lastScrollTop: number = 0;
   public showBackToTop: boolean = false;
   public toggleSearchBar: boolean = false;
-  private defaultMenu: string; //declared for return default menu when window resized 
+  private defaultMenu: string; //declared for return default menu when window resized
   public showSidenav: boolean = false;
 
-  constructor(public settingsService: SettingsService, public router: Router, private menuService: MenuService){        
+  constructor(public settingsService: SettingsService, public router: Router, private menuService: MenuService){
     this.settings = this.settingsService.settings;
   }
-  
+
   ngOnInit() {
     if(window.innerWidth <= 768){
       this.settings.menu = 'vertical';
       this.settings.sidenavIsOpened = false;
       this.settings.sidenavIsPinned = false;
     }
-    this.menuOption = this.settings.menu; 
-    this.menuTypeOption = this.settings.menuType; 
+    this.menuOption = this.settings.menu;
+    this.menuTypeOption = this.settings.menuType;
     this.defaultMenu = this.settings.menu;
   }
 
   ngAfterViewInit(){
     setTimeout(() => { this.settings.loadingSpinner = false }, 300);
-    this.backToTop.nativeElement.style.display = 'none';  
+    this.backToTop.nativeElement.style.display = 'none';
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) { 
+      if (event instanceof NavigationEnd) {
         if(!this.settings.sidenavIsPinned){
-          this.sidenav.close(); 
-        }      
+          this.sidenav.close();
+        }
         if(window.innerWidth <= 768){
-          this.sidenav.close(); 
-        } 
-      }                
+          this.sidenav.close();
+        }
+      }
     });
     if(this.settings.menu == "vertical") {
       this.menuService.expandActiveSubMenu(this.menuService.getVerticalMenuItems());
-    } 
-  } 
+    }
+  }
 
   public chooseMenu(){
-    this.settings.menu = this.menuOption; 
+    this.settings.menu = this.menuOption;
     this.defaultMenu = this.menuOption;
-    this.router.navigate(['/']); 
+    this.router.navigate(['/']);
   }
 
   public chooseMenuType(){
@@ -107,18 +110,18 @@ export class PagesComponent implements OnInit {
   }
 
   public changeTheme(theme: string){
-    this.settings.theme = theme;       
+    this.settings.theme = theme;
   }
-   
+
   public toggleSidenav(){
     this.sidenav.toggle();
-  } 
+  }
 
-  public onPageScroll(event: any){  
+  public onPageScroll(event: any){
     (event.target.scrollTop > 300) ? this.backToTop.nativeElement.style.display = 'flex' : this.backToTop.nativeElement.style.display = 'none';
     if(this.settings.menu == 'horizontal'){
       if(this.settings.fixedHeader){
-        var currentScrollTop = (event.target.scrollTop > 56) ? event.target.scrollTop : 0; 
+        var currentScrollTop = (event.target.scrollTop > 56) ? event.target.scrollTop : 0;
         if(currentScrollTop > this.lastScrollTop){
           document.querySelector('#horizontal-menu')!.classList.add('sticky');
           event.target.classList.add('horizontal-menu-hidden');
@@ -126,9 +129,9 @@ export class PagesComponent implements OnInit {
         else{
           document.querySelector('#horizontal-menu')!.classList.remove('sticky');
           event.target.classList.remove('horizontal-menu-hidden');
-        } 
-        this.lastScrollTop = currentScrollTop; 
-      } 
+        }
+        this.lastScrollTop = currentScrollTop;
+      }
       else{
         if(event.target.scrollTop > 56){
           document.querySelector('#horizontal-menu')!.classList.add('sticky');
@@ -137,21 +140,21 @@ export class PagesComponent implements OnInit {
         else{
           document.querySelector('#horizontal-menu')!.classList.remove('sticky');
           event.target.classList.remove('horizontal-menu-hidden');
-        }  
+        }
       }
     }
   }
 
-  public scrollToTop() { 
+  public scrollToTop() {
     this.mainSidenavContent.scrollTo({
       top: 0
     });
     this.mainContent.nativeElement.scrollTo({
       duration: 100,
       top: 0
-    }); 
+    });
   }
-  
+
 
   @HostListener('window:resize')
   public onWindowResize():void {
@@ -180,6 +183,6 @@ export class PagesComponent implements OnInit {
         }
       }
     }
-  } 
+  }
 
 }

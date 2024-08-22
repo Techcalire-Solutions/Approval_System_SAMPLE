@@ -1,4 +1,7 @@
 import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-RTCOBV3B.js";
+import {
   MAT_RIPPLE_GLOBAL_OPTIONS,
   MatCommonModule,
   MatRipple,
@@ -13,9 +16,6 @@ import {
   Directionality
 } from "./chunk-VIFRIXRU.js";
 import "./chunk-CJNMZQC3.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-RTCOBV3B.js";
 import "./chunk-LTMPTY2L.js";
 import {
   ANIMATION_MODULE_TYPE,

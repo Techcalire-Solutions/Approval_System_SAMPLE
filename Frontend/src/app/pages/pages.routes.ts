@@ -1,18 +1,13 @@
 import { Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
-import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: PagesComponent,
+  { path: '', component: PagesComponent,
     children: [
-   
-      {
-        path: '',
-        loadComponent: () => import('./dashboard/dashboard.component').then(c => c.DashboardComponent),
+      {path: '', loadComponent: () => import('./dashboard/dashboard.component').then(c => c.DashboardComponent),
         data: { breadcrumb: 'Dashboard' }
       },
+      
       {
         path: 'role',
         loadComponent: () => import('./role/role.component').then(c => c.RoleComponent),
@@ -58,10 +53,10 @@ export const routes: Routes = [
         loadChildren: () => import('./tables/tables.routes').then(p => p.routes),
         data: { breadcrumb: 'Tables' }
       },
-      { 
-        path: 'profile', 
+      {
+        path: 'profile',
         loadChildren: () => import('./profile/profile.routes').then(p => p.routes),
-        data: { breadcrumb: 'Profile' } 
+        data: { breadcrumb: 'Profile' }
       },
       {
         path: 'schedule',
