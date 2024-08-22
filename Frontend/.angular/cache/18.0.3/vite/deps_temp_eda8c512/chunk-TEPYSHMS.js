@@ -42,9 +42,6 @@ import {
   Directionality
 } from "./chunk-VIFRIXRU.js";
 import {
-  SelectionModel
-} from "./chunk-OGRJLTMR.js";
-import {
   A,
   DOWN_ARROW,
   ENTER,
@@ -54,6 +51,9 @@ import {
   UP_ARROW,
   hasModifierKey
 } from "./chunk-CJNMZQC3.js";
+import {
+  SelectionModel
+} from "./chunk-OGRJLTMR.js";
 import {
   FormGroupDirective,
   NgControl,
@@ -1507,4 +1507,4 @@ export {
   MatSelectTrigger,
   MatSelectModule
 };
-//# sourceMappingURL=chunk-KEJ2KUXC.js.map
+//# sourceMappingURL=chunk-TEPYSHMS.js.map

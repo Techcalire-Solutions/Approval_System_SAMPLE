@@ -33,7 +33,6 @@ import "./chunk-VLD3UAOS.js";
 import {
   Directionality
 } from "./chunk-VIFRIXRU.js";
-import "./chunk-OGRJLTMR.js";
 import {
   DOWN_ARROW,
   ENTER,
@@ -44,6 +43,7 @@ import {
   UP_ARROW,
   hasModifierKey
 } from "./chunk-CJNMZQC3.js";
+import "./chunk-OGRJLTMR.js";
 import {
   CommonModule,
   DOCUMENT

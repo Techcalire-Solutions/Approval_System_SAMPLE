@@ -11,9 +11,6 @@ import {
   Directionality
 } from "./chunk-VIFRIXRU.js";
 import {
-  SelectionModel
-} from "./chunk-OGRJLTMR.js";
-import {
   DOWN_ARROW,
   ENTER,
   LEFT_ARROW,
@@ -21,6 +18,9 @@ import {
   SPACE,
   UP_ARROW
 } from "./chunk-CJNMZQC3.js";
+import {
+  SelectionModel
+} from "./chunk-OGRJLTMR.js";
 import {
   NG_VALUE_ACCESSOR
 } from "./chunk-RTCOBV3B.js";

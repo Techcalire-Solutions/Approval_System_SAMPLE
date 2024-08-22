@@ -27,11 +27,11 @@ import {
 import {
   Directionality
 } from "./chunk-VIFRIXRU.js";
-import "./chunk-OGRJLTMR.js";
 import {
   ESCAPE,
   hasModifierKey
 } from "./chunk-CJNMZQC3.js";
+import "./chunk-OGRJLTMR.js";
 import {
   DOCUMENT
 } from "./chunk-LTMPTY2L.js";
