@@ -1,24 +1,22 @@
 import {
-  toSignal
-} from "./chunk-336TQURL.js";
-import {
   Platform
-} from "./chunk-UZ7CZ6BJ.js";
+} from "./chunk-VGGT24IP.js";
 import {
   coerceElement
-} from "./chunk-VLD3UAOS.js";
+} from "./chunk-Z7RCO23C.js";
 import {
   Directionality
-} from "./chunk-VIFRIXRU.js";
+} from "./chunk-CG7I4P7F.js";
 import {
   DOCUMENT,
   isPlatformBrowser
-} from "./chunk-LTMPTY2L.js";
+} from "./chunk-KX2KQ7UR.js";
 import {
   ApplicationRef,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
+  DestroyRef,
   Directive,
   ElementRef,
   EventEmitter,
@@ -31,7 +29,10 @@ import {
   Output,
   PLATFORM_ID,
   Renderer2,
+  RuntimeError,
   ViewChild,
+  assertInInjectionContext,
+  assertNotInReactiveContext,
   booleanAttribute,
   computed,
   createComponent,
@@ -70,7 +71,7 @@ import {
   ɵɵqueryRefresh,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-Y6TRI7LI.js";
+} from "./chunk-5ISB3AU7.js";
 import {
   EMPTY,
   Observable,
@@ -91,13 +92,55 @@ import {
   takeWhile,
   tap,
   throttleTime
-} from "./chunk-3OYL3RVR.js";
-import "./chunk-NXOYTHC7.js";
+} from "./chunk-U57LLEQJ.js";
 import {
   __async,
   __spreadProps,
   __spreadValues
-} from "./chunk-CPNXOV62.js";
+} from "./chunk-JW6Z52O3.js";
+
+// node_modules/@angular/core/fesm2022/rxjs-interop.mjs
+function toSignal(source, options) {
+  ngDevMode && assertNotInReactiveContext(toSignal, "Invoking `toSignal` causes new subscriptions every time. Consider moving `toSignal` outside of the reactive context and read the signal value where needed.");
+  const requiresCleanup = !options?.manualCleanup;
+  requiresCleanup && !options?.injector && assertInInjectionContext(toSignal);
+  const cleanupRef = requiresCleanup ? options?.injector?.get(DestroyRef) ?? inject(DestroyRef) : null;
+  let state;
+  if (options?.requireSync) {
+    state = signal({
+      kind: 0
+      /* StateKind.NoValue */
+    });
+  } else {
+    state = signal({ kind: 1, value: options?.initialValue });
+  }
+  const sub = source.subscribe({
+    next: (value) => state.set({ kind: 1, value }),
+    error: (error) => {
+      if (options?.rejectErrors) {
+        throw error;
+      }
+      state.set({ kind: 2, error });
+    }
+    // Completion of the Observable is meaningless to the signal. Signals don't have a concept of
+    // "complete".
+  });
+  if (ngDevMode && options?.requireSync && state().kind === 0) {
+    throw new RuntimeError(601, "`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.");
+  }
+  cleanupRef?.onDestroy(sub.unsubscribe.bind(sub));
+  return computed(() => {
+    const current = state();
+    switch (current.kind) {
+      case 1:
+        return current.value;
+      case 2:
+        throw current.error;
+      case 0:
+        throw new RuntimeError(601, "`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.");
+    }
+  });
+}
 
 // node_modules/ngx-scrollbar/fesm2022/ngx-scrollbar-smooth-scroll.mjs
 var NEWTON_ITERATIONS = 4;
@@ -2109,4 +2152,13 @@ export {
   provideScrollbarOptions,
   provideScrollbarPolyfill
 };
+/*! Bundled license information:
+
+@angular/core/fesm2022/rxjs-interop.mjs:
+  (**
+   * @license Angular v18.0.2
+   * (c) 2010-2024 Google LLC. https://angular.io/
+   * License: MIT
+   *)
+*/
 //# sourceMappingURL=ngx-scrollbar.js.map
